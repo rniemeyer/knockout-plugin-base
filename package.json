@@ -1,0 +1,29 @@
+{
+  "name": "knockout-plugin-base",
+  "version": "1.0.0",
+  "description": "A base build setup for my plugins",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run prep && mocha --compilers js:babel-register src/**/*.spec.js",
+    "test:watch": "npm run prep && npm run test -- --watch",
+    "coverage": "npm run prep && nyc -r text-summary -r html -- npm run test",
+    "build": "npm run test && webpack",
+    "format": "prettier **/*.js --write --use-tabs",
+    "lint": "eslint src/**/*.js --fix",
+    "prep": "npm run lint && npm run format"
+  },
+  "author": "Ryan Niemeyer",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
+    "eslint": "^4.6.1",
+    "knockout": "^3.4.2",
+    "mocha": "^3.5.0",
+    "nyc": "^11.2.1",
+    "prettier": "^1.6.1",
+    "webpack": "^3.5.6"
+  }
+}
